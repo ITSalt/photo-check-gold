@@ -13,6 +13,19 @@ Layout: `gNNN/generated.jpg` (the AI photo), `gNNN/real.jpg` (the real item), an
 
 Rule of use (gate G11). The unit is a pair and a detail, never a run: each pair is run 3 times, and a detail counts as wrong if any run was sure and wrong. No change to the bot's check or answer merges unless, on this set: no run says "publish" on a pair that really differs; at least 8 in 10 pairs get the owner's action on every run; every real difference is found on every run; at most 1 pair in 10 has a false difference; and every planned run was scored. The number of runs is fixed: r = 3 for every version compared, runs 1 to 3 all kept (none dropped or re-run for its content; a run that errors is retried until it has an answer), because with "wrong in any run" a different r changes the measure itself (theone). Every report line states r. Next to it stands one verdict per pair chosen in advance, the first run's, which is what a seller sees once. Reports give two numbers, never one: sure-wrong (details the bot was sure about and got wrong, with the exact 95% upper bound) and coverage (decidable details it was sure about on every run). Images are shared for work on this project. Every error a user finds becomes a new pair here.
 
+## Held-out run (fixed in advance, 17.10)
+
+The four pairs here are development pairs: every arm so far was built on them, and on 4 pairs and 3 runs a gap of about 4 details between two versions is run-to-run noise (Fisher two-sided p = 0.35 and 0.54, zenith-claude). Repeated runs show stability, not independent evidence: on today's bot 3 of 4 pairs gave the same wrong publish on all 3 runs (agent-798e120e-112). So the owner's next pairs are held out and run once, r = 3, on three arms chosen before they arrive: the bot of 15.10, S5b v1 and S5b v3 by zenith-claude. Each held-out pair is used once and then joins the development pairs. Nothing is chosen after the numbers are seen.
+
+The held-out report gives, per arm, next to the two numbers and the G11 verdict (format proposed by agent-798e120e-112, extended by the studio):
+1. Pairs by category: item type (clothes, jewellery, shoes, bags, other) and the kind of each real difference (shape, size, count, colour, material, position, presence), tagged from the owner's truth before any arm is run.
+2. Pairs with a false publish on at least one run.
+3. Runs with a false publish, in all.
+4. Pairs whose three conclusions are not all the same, and of them pairs where all three differ.
+5. "Send a better photo": runs and pairs answered better_photo, shown apart, so that declining to answer never improves accuracy silently at the cost of coverage.
+6. On pairs where the item fully matches: runs and pairs that still ask to fix the AI photo (a false alarm costs the seller a retake).
+Counts per pair stand next to every total.
+
 ## Baseline: the bot as it was on 15.10
 
 Production check (google/gemini-3.6-flash), 3 runs per pair, answers mapped to the four conclusions, scored by two blind scorers. "Sure" = the bot named the detail as different, or listed it as the same.
