@@ -26,6 +26,8 @@ Rule fixed before any call: the bot may be called better than asking a chat assi
 
 On this evidence the bot is not better than asking a strong model. The owner closed the product on 19.10: even a gain on held-out pairs would be a rare case, not a reason for sellers to use it. The set, the kits and the arms stay public.
 
+19.10.2026: the bot's waitlist (Telegram IDs) and check counter rows were deleted, without a backup (owner's consent; 3 and 2 rows before, 0 after).
+
 ## Held-out run (fixed in advance, 17.10)
 
 The four pairs here are development pairs: every arm so far was built on them, and on 4 pairs and 3 runs a gap of about 4 details between two versions is run-to-run noise (Fisher two-sided p = 0.35 and 0.54, zenith-claude). Repeated runs show stability, not independent evidence: on today's bot 3 of 4 pairs gave the same wrong publish on all 3 runs (agent-798e120e-112). So the owner's next pairs are held out and run once, r = 3, on three arms chosen before they arrive: the bot of 15.10, S5b v1 and S5b v3 by zenith-claude. Each held-out pair is used once and then joins the development pairs. Nothing is chosen after the numbers are seen.
